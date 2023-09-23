@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.lawdingo_g4.dtos;
 
 public class ProceedingSummaryDTO {
     private int id_proceeding;
+    private String name;
     private String name_client;
     private String name_lawyer;
     private String name_court;
@@ -45,5 +46,13 @@ public class ProceedingSummaryDTO {
 
     public void setNum_doc(int num_doc) {
         this.num_doc = num_doc;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

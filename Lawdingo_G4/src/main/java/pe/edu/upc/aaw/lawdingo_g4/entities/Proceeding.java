@@ -9,6 +9,9 @@ public class Proceeding {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idProceeding;
 
+    @Column(name = "name",length = 20,nullable = false)
+    private String name;
+
     @Column(name = "state", nullable = false)
     private char state;
 
@@ -25,8 +28,10 @@ public class Proceeding {
     public Proceeding() {
     }
 
+
     public Proceeding(int idProceeding, char state, Court court, Users client, Users lawyer) {
         this.idProceeding = idProceeding;
+        this.name = name;
         this.state = state;
         this.court = court;
         this.client = client;
@@ -71,5 +76,13 @@ public class Proceeding {
 
     public void setLawyer(Users lawyer) {
         this.lawyer = lawyer;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
