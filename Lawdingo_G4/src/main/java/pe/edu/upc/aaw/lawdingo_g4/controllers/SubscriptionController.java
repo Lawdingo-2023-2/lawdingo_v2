@@ -2,10 +2,13 @@ package pe.edu.upc.aaw.lawdingo_g4.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.lawdingo_g4.dtos.SubscriptionDTO;
+import pe.edu.upc.aaw.lawdingo_g4.dtos.UserDTO;
 import pe.edu.upc.aaw.lawdingo_g4.dtos.UsersBySubscriptionDTO;
 import pe.edu.upc.aaw.lawdingo_g4.entities.Subscription;
+import pe.edu.upc.aaw.lawdingo_g4.entities.Users;
 import pe.edu.upc.aaw.lawdingo_g4.serviceinterfaces.ISubscriptionService;
 
 import java.util.ArrayList;
@@ -49,11 +52,16 @@ public class SubscriptionController {
     }
 
 
-
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Integer id){
         uS.delete(id);
+    }
+    @PutMapping()
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void goUpdate(@RequestBody SubscriptionDTO dto){
+        ModelMapper m=new ModelMapper();
+        Subscription u=m.map(dto,Subscription.class);
+        uS.create(u);
     }
 
 
