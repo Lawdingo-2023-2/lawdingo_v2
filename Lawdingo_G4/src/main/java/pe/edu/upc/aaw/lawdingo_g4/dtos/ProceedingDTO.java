@@ -5,6 +5,7 @@ import pe.edu.upc.aaw.lawdingo_g4.entities.Users;
 
 public class ProceedingDTO {
     private int idProceeding;
+    private String name;
 
     private char state;
 
@@ -52,5 +53,13 @@ public class ProceedingDTO {
 
     public void setLawyer(Users lawyer) {
         this.lawyer = lawyer;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

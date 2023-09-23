@@ -47,10 +47,11 @@ public class ProceedingController {
         for(String[] data:lista){
             ProceedingSummaryDTO dto=new ProceedingSummaryDTO();
             dto.setId_proceeding(Integer.parseInt(data[0]));
-            dto.setName_client(data[1]);
-            dto.setName_lawyer(data[2]);
-            dto.setName_court(data[3]);
-            dto.setNum_doc(Integer.parseInt(data[4]));
+            dto.setName(data[1]);
+            dto.setName_client(data[2]);
+            dto.setName_lawyer(data[3]);
+            dto.setName_court(data[4]);
+            dto.setNum_doc(Integer.parseInt(data[5]));
             listaDTO.add(dto);
         }
         return listaDTO;
