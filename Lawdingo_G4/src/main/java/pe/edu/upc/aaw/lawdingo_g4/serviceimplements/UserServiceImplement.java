@@ -35,10 +35,6 @@ public class UserServiceImplement implements IUserService {
     }
 
 
-    public List <Users> list( String name){
-        return uR.findByName(name);
-    }
-    
     @Override
     public void  delete(int idUser) {
         uR.deleteById(idUser);

@@ -48,31 +48,11 @@ public class UserController {
 
     //PROBAR
 
-    @GetMapping("/list")
-    public String listUser(Model model) {
-        try {
-            model.addAttribute("user", new Users());
-            model.addAttribute("listaUsuarios", uS.list());
-        } catch (Exception e) {
-            model.addAttribute("error", e.getMessage());
-        }
-        return "usersecurity/listUser";
-    }
-
-
-
     @GetMapping("/startsWith/{letter}")
     public List<Users> getUsersWhoseNameStartsWith(@PathVariable String letter) {
         return uS.getUsersWhoseNameStartsWith(letter);
     }
 
-    @GetMapping("/name")
-    public List<UserDTO> list(@RequestBody String name){
-        return uS.list(name).stream().map(x -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(x, UserDTO.class);
-        }).collect(Collectors.toList());
-    }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") int id){
